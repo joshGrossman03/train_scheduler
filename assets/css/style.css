@@ -1,0 +1,36 @@
+#train-icon{
+    margin-top:5px;
+    margin-right:10px;
+    margin-bottom: 0px;
+}
+.train-enrty-form{
+    margin-top: 20px;
+}
+
+.card-header{
+    background-color: #003D5B;
+    color:#ccc;
+    font-family: 'Open Sans', sans-serif;
+}
+
+thead{
+    background-color: #30638E;
+    color: #ccc;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.btn{
+    background-color: #D1495B;
+
+}
+.jumbotron{
+    background-color: #D1495B;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: #ccc;
+}
+
+td,th,{
+    font-family: 'Open Sans', sans-serif;
+}

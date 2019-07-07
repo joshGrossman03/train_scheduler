@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,103 +9,121 @@
 
 
 
-<link href="./assets/css/reset.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">s</script>
-<link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/reset.css" rel="stylesheet">
 
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+        crossorigin="anonymous"></script>
+        <link href="./assets/css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
-    
 
-<div align="center" class="jumbotron">
-    <h1 class="display-4">Train Scheduler</h1>
-</div>
-<div class="conatiner">
-    
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-                <div class="panel panel-info">
-            <div class="panel-heading">
-                    <h4 class="panel-title"><strong>Current Train Schedule</strong></h4>
-            </div>
-            <div class="panel-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Train</th>
-                        <th>Destination</th>
-                        <th>Frequency (min)</th>
-                        <th>Arrival Time</th>
-                        <th>Minutes Away</th>
-                    </tr>
-                </thead>
-                <tbody id="train-schedule"></tbody>
-            </table>
-        </div>
-    </div>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-                <div class="panel panel-info">
-                        <div class="panel-heading">
-                          <h4 class="panel-title"><strong>Add Trains</strong></h4>
+
+   
+    <div class="conatiner-fluid">
+            <div class="jumbotron">
+                    <h1 align="center"class="display-4">Train Scheduler</h1>
+                    <h5 align="center"id="current-time"></h5>
+                </div>
+
+        <div class="row">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4><strong>Current Train Schedule</strong></h4>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Train</th>
+                                        <th>Destination</th>
+                                        <th>Frequency (min)</th>
+                                        <th>Arrival Time</th>
+                                        <th>Minutes Away</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="train-schedule"></tbody>
+                            </table>
                         </div>
-                        <div class="panel-body">
-              
-                          <!-- Here we create an HTML Form for handling the inputs-->
-                          <form role="form">
-              
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row train-enrty-form">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><strong>Add Trains</strong></h4>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Here we create an HTML Form for handling the inputs-->
+                        <form role="form">
+
                             <!-- Here we create the text box for capturing the search term-->
                             <div class="form-group">
-                              <label for="search">Train Name</label>
-                              <input type="text" class="form-control" id="train-name">
+                                <label for="search">Train Name</label>
+                                <input type="text" class="form-control" id="train-name">
                             </div>
-              
+
                             <!-- Here we capture the number of records that the user wants to retrieve  -->
                             <div class="form-group">
-                              <label for="search">Destination</label>
-                              <input type="text" class="form-control" id="destination">
+                                <label for="search">Destination</label>
+                                <input type="text" class="form-control" id="destination">
                             </div>
-              
+
                             <div class="form-group">
-                              <label for="search">First Train Time (Military Time HH:MM)</label>
-                              <input type="text" class="form-control" id="first-time">
+                                <label for="search">First Train Time (Military Time HH:MM)</label>
+                                <input type="text" class="form-control" id="first-time">
                             </div>
-              
+
                             <div class="form-group">
-                              <label for="search">Frequency (mins)</label>
-                              <input type="number" class="form-control" id="frequency">
+                                <label for="search">Frequency (mins)</label>
+                                <input type="number" class="form-control" id="frequency">
                             </div>
-              
-              
+
+
                             <!-- Here we have our final submit button -->
-                            <button type="submit" class="btn btn-info" id="add-train">Add Train to Schedule</button>
-                    
-              
-                          </form>
-                        </div>
-                      </div>
+                            <button type="submit" class="btn" id="add-train" data-toggle="tooltip"
+                                data-placement="top" title="Add a New Train To the Schedule">
+                                <i class="material-icons">add</i>
+                                <i class="material-icons" id="train-icon">train</i>
+                            </button>
 
 
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
     </div>
-</div>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-<script type="text/javascript" src="./assets/javascript/app.js"></script>
-    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
+
 </body>
-</html> 
+
+</html>

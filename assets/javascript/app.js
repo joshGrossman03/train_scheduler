@@ -21,6 +21,7 @@
   var destination = "";
   var firstTime = "";
   var frequency = 0;
+  var currentTime = moment();
   
    // Capture Button Click
   $("#add-train").on("click", function(event) {
@@ -61,7 +62,7 @@
       var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
       console.log(firstTimeConverted);
       // Current Time
-      var currentTime = moment();
+      currentTime = moment();
       console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
       // Difference between the times
       var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -78,6 +79,7 @@
       
   
       $("#train-schedule").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td");
+      $("#current-time").html("Current Time: " + moment(currentTime).format("HH:mm:ss"));
   
       // Handle the errors
     }, function(errorObject) {
@@ -106,7 +108,7 @@
     var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
     console.log(firstTimeConverted);
     // Current Time
-    var currentTime = moment();
+    currentTime = moment();
     console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
     // Difference between the times
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -124,16 +126,21 @@
    
 
     $("#train-schedule").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td");
+    $("#current-time").html("Current Time: " + moment(currentTime).format("HH:mm:ss"));
     });
   
 });
   };
  
   function refreshData() {
-    refreshTimes = setInterval(pushNew, 60000);
+    refreshTimes = setInterval(pushNew, 1000);
   
   };
   refreshData();
+  
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
  
  
  
